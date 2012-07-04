@@ -1,4 +1,4 @@
-// HIH4030Humidity.h - Arduino library for retrieving data from the analog GP2Y0A21YK IR Humidity sensor
+// HumidityHIH4030.h - Arduino library for retrieving data from the analog GP2Y0A21YK IR Humidity sensor
 // Copyright 2012 Jeroen Doggen (jeroendoggen@gmail.com)
 //
 // Version History:
@@ -20,14 +20,14 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-#ifndef HIH4030Humidity_h
-#define HIH4030Humidity_h
+#ifndef HumidityHIH4030_h
+#define HumidityHIH4030_h
 #include <Arduino.h>
 
-class HIH4030Humidity
+class HumidityHIH4030
 {
   public:
-    HIH4030Humidity();
+    HumidityHIH4030();
     void begin();                                 // begin using default values
     void begin(int humidityPin);                  // begin using a user selected analog pin
 

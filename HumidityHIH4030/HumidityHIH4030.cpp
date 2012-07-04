@@ -1,6 +1,6 @@
-// HIH4030Humidity.cpp - Arduino library for retrieving data from the analog GP2Y0A21YK IR Humidity sensor
+// HumidityHIH4030.cpp - Arduino library for retrieving data from the analog GP2Y0A21YK IR Humidity sensor
 // Copyright 2012 Jeroen Doggen (jeroendoggen@gmail.com)
-// For more information: variable declaration, changelog,... see HIH4030Humidity.h
+// For more information: variable declaration, changelog,... see HumidityHIH4030.h
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -17,14 +17,14 @@
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #include <Arduino.h>
-#include <HIH4030Humidity.h>
+#include <HumidityHIH4030.h>
 
 #define ZEROPERCENTVOLTAGE 0.8
 
 /// <summary>
 /// Constructor
 /// </summary>
-HIH4030Humidity::HIH4030Humidity()
+HumidityHIH4030::HumidityHIH4030()
 {
 }
 
@@ -32,7 +32,7 @@ HIH4030Humidity::HIH4030Humidity()
 /// Begin function to set pins: humidityPin = A0.
 /// </summary>
 void
-HIH4030Humidity::begin()
+HumidityHIH4030::begin()
 {                            // default value: 20° Celcius
   begin (A0);
 }
@@ -42,7 +42,7 @@ HIH4030Humidity::begin()
 /// - int _humidityPin: number indicating the humidity to an object: ANALOG IN
 /// When you use begin() without variables standard values are loaded: A0
 /// </summary>
-void HIH4030Humidity::begin(int humidityPin)
+void HumidityHIH4030::begin(int humidityPin)
 {
   pinMode(humidityPin, INPUT);
   _humidityPin=humidityPin;
@@ -52,7 +52,7 @@ void HIH4030Humidity::begin(int humidityPin)
 /// <summary>
 /// setTemperature(int temperature): Sets the temperature.
 /// </summary>
-void HIH4030Humidity::setTemperature(int temperature)
+void HumidityHIH4030::setTemperature(int temperature)
 {
   _temperature=temperature;
   _maxVoltage = ( 3.27 -  (0.006706 * _temperature ));
@@ -61,7 +61,7 @@ void HIH4030Humidity::setTemperature(int temperature)
 /// <summary>
 /// getHumidityRaw(): Returns the humidity as a raw value: ADC output: 0 -> 1023
 /// </summary>
-int HIH4030Humidity::getHumidityRaw()
+int HumidityHIH4030::getHumidityRaw()
 {
   return (analogRead(_humidityPin));
 }
@@ -69,7 +69,7 @@ int HIH4030Humidity::getHumidityRaw()
 /// <summary>
 /// getHumidityPercentage(): Returns the humidity percentage
 /// </summary>
-float HIH4030Humidity::getHumidityPercentage()
+float HumidityHIH4030::getHumidityPercentage()
 {
   return ( (((float(getHumidityRaw())/1023)*5) - ZEROPERCENTVOLTAGE )) / _maxVoltage * 100;
 }

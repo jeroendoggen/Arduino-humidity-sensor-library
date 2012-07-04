@@ -1,6 +1,6 @@
-#include <HIH4030Humidity.h>
+#include "HumidityHIH4030.h"
 
-HIH4030Humidity Humidity;
+HumidityHIH4030 Humidity;
 int humidity;
 
 void setup()
