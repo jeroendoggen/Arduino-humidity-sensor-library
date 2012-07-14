@@ -1,6 +1,6 @@
-// HIH4030Humidity.cpp - Arduino library for retrieving data from the analog GP2Y0A21YK IR Humidity sensor
-// Copyright 2012 Jeroen Doggen (jeroendoggen@gmail.com)
-// For more information: variable declaration, changelog,... see HIH4030Humidity.h
+/// HIH4030Humidity.cpp - Arduino library for retrieving data from the analog GP2Y0A21YK IR Humidity sensor
+/// Copyright 2012 Jeroen Doggen (jeroendoggen@gmail.com)
+/// For more information: variable declaration, changelog,... see HIH4030Humidity.h
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -21,27 +21,19 @@
 
 #define ZEROPERCENTVOLTAGE 0.8
 
-/// <summary>
-/// Constructor
-/// </summary>
+/// Default constructor.
 HIH4030Humidity::HIH4030Humidity()
 {
 }
 
-/// <summary>
-/// Begin function to set pins: humidityPin = A0.
-/// </summary>
+///Begin using default values: humidityPin = A0.
 void
 HIH4030Humidity::begin()
 {                            // default value: 20° Celcius
   begin (A0);
 }
 
-/// <summary>
-/// Begin variables
-/// - int _humidityPin: number indicating the humidity to an object: ANALOG IN
-/// When you use begin() without variables standard values are loaded: A0
-/// </summary>
+/// Begin with user selected analog inputpin.
 void HIH4030Humidity::begin(int humidityPin)
 {
   pinMode(humidityPin, INPUT);
@@ -49,28 +41,23 @@ void HIH4030Humidity::begin(int humidityPin)
    setTemperature(20) ;
 }
 
-/// <summary>
-/// setTemperature(int temperature): Sets the temperature.
-/// </summary>
+
+/// setTemperature: set the room temperature (used in humidity calculation)(default value: 20° Celsius).
 void HIH4030Humidity::setTemperature(int temperature)
 {
   _temperature=temperature;
   _maxVoltage = ( 3.27 -  (0.006706 * _temperature ));
 }
 
-/// <summary>
-/// getHumidityRaw(): Returns the humidity as a raw value: ADC output: 0 -> 1023
-/// </summary>
+/// Returns the humidity as a raw value: ADC output: 0 -> 1023.
 int HIH4030Humidity::getHumidityRaw()
 {
   return (analogRead(_humidityPin));
 }
 
-/// <summary>
-/// getHumidityPercentage(): Returns the humidity percentage
-/// </summary>
+/// Returns the relative humidity percentage. Should be between 0% and 100%
 float HIH4030Humidity::getHumidityPercentage()
 {
+  /// @todo Check the output for invalid data: over or under 100 (how to report?)
   return ( (((float(getHumidityRaw())/1023)*5) - ZEROPERCENTVOLTAGE )) / _maxVoltage * 100;
 }
-

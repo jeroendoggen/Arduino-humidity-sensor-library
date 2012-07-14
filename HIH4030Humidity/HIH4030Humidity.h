@@ -1,4 +1,4 @@
-// HIH4030Humidity.h - Arduino library for retrieving data from the analog GP2Y0A21YK IR Humidity sensor
+// HIH4030Humidity.h - Arduino library for retrieving data from Honeywell's HIH4030 Humidity sensor.
 // Copyright 2012 Jeroen Doggen (jeroendoggen@gmail.com)
 //
 // Version History:
@@ -24,21 +24,22 @@
 #define HIH4030Humidity_h
 #include <Arduino.h>
 
+/// Arduino library for retrieving data from Honeywell's HIH4030 Humidity sensor.
 class HIH4030Humidity
 {
   public:
     HIH4030Humidity();
-    void begin();                                 // begin using default values
-    void begin(int humidityPin);                  // begin using a user selected analog pin
+    void begin();
+    void begin(int humidityPin); 
 
-    int getHumidityRaw();                         // get the humidity raw ADC value
-    float getHumidityPercentage();                // get the humidity percentage
+    int getHumidityRaw();
+    float getHumidityPercentage();
 
-    void setTemperature(int temperature);         // set the room temperature (used in humidity calculation)(default value: 20° Celsius)
+    void setTemperature(int temperature);
 
   private:
-    int _humidityPin;                             // analog pin where the sensor is connected
-    int _temperature;                             // current temperature
-    float _maxVoltage;                            // maximum voltage
+    int _humidityPin;
+    int _temperature;
+    float _maxVoltage;
 };
 #endif
