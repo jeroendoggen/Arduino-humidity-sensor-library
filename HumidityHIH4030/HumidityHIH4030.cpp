@@ -3,8 +3,9 @@
 //
 // Version History:
 //  Version 0.1: getHumidityRaw, getHumidityPercentage
+//  Version 0.2: setTemperature, extra comments
 // Roadmap:
-//  Version 0.2: Compensation for Vcc variance?
+//  Version 0.3: Compensation for Vcc variance?
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -33,7 +34,7 @@ HumidityHIH4030::HumidityHIH4030()
 ///Begin using default values: humidityPin = A0.
 void
 HumidityHIH4030::begin()
-{                            // default value: 20° Celcius
+{
   begin (A0);
 }
 
@@ -42,9 +43,9 @@ void HumidityHIH4030::begin(int humidityPin)
 {
   pinMode(humidityPin, INPUT);
   _humidityPin=humidityPin;
-   setTemperature(20) ;
+  /// Default Temperature: 20° Celcius
+   setTemperature(20) ; 
 }
-
 
 /// setTemperature: set the room temperature (used in humidity calculation)(default value: 20° Celsius).
 void HumidityHIH4030::setTemperature(int temperature)
