@@ -5,7 +5,7 @@
 //  Version 0.1: getHumidityRaw, getHumidityPercentage
 //  Version 0.2: setTemperature, extra comments
 // Roadmap:
-//  Version 0.3: Compensation for Vcc variance?
+//  Version 0.3: Compensation for Vcc variance, detecting invalid humidity percentages?
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
@@ -29,6 +29,9 @@
 /// Default constructor.
 HumidityHIH4030::HumidityHIH4030()
 {
+  _humidityPin=0;
+  _temperature=0;
+  _maxVoltage=0;
 }
 
 ///Begin using default values: humidityPin = A0.
@@ -41,10 +44,10 @@ HumidityHIH4030::begin()
 /// Begin with user selected analog inputpin.
 void HumidityHIH4030::begin(int humidityPin)
 {
-  pinMode(humidityPin, INPUT);
   _humidityPin=humidityPin;
+  pinMode(humidityPin, INPUT);
   /// Default Temperature: 20° Celcius
-   setTemperature(20) ; 
+  setTemperature(20) ; 
 }
 
 /// setTemperature: set the room temperature (used in humidity calculation)(default value: 20° Celsius).
