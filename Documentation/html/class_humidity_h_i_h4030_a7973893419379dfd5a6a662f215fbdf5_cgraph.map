@@ -1,0 +1,3 @@
+<map id="HumidityHIH4030::begin" name="HumidityHIH4030::begin">
+<area shape="rect" id="node3" href="$class_humidity_h_i_h4030.html#a8469db71619ced58996d6e96279ec771" title="setTemperature: set the room temperature (used in humidity calculation)(default value: 20° Celsius)..." alt="" coords="220,5,444,35"/>
+</map>
