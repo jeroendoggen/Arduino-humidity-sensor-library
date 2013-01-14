@@ -1,4 +1,5 @@
-// HumidityHIH4030.h - Arduino library for retrieving data from Honeywell's HIH4030 Humidity sensor.
+// HumidityHIH4030.h - Arduino library for retrieving data from
+//   Honeywell's HIH4030 Humidity sensor.
 // Copyright 2012 Jeroen Doggen (jeroendoggen@gmail.com)
 //
 // This library is free software; you can redistribute it and/or
@@ -15,17 +16,17 @@
 // License along with this library; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-#ifndef HumidityHIH4030_h
-#define HumidityHIH4030_h
+#ifndef HUMIDITYHIH4030_HUMIDITYHIH4030_H_
+#define HUMIDITYHIH4030_HUMIDITYHIH4030_H_
 #include <Arduino.h>
 
-/// Arduino library for retrieving data from Honeywell's HIH4030 Humidity sensor.
-class HumidityHIH4030
-{
+/// Arduino library for retrieving data from Honeywell's
+///   HIH4030 Humidity sensor.
+class HumidityHIH4030 {
   public:
     HumidityHIH4030();
     void begin();
-    void begin(int humidityPin); 
+    void begin(int humidityPin);
 
     int getHumidityRaw();
     float getHumidityPercentage();
@@ -37,4 +38,4 @@ class HumidityHIH4030
     int _temperature;
     float _maxVoltage;
 };
-#endif
+#endif  // HUMIDITYHIH4030_HUMIDITYHIH4030_H_
