@@ -16,7 +16,8 @@ The sensor is preconfigured for use at room temperature, but can be reconfigured
  * todo
 
 ## Screenshot:
-https://raw.github.com/jeroendoggen/arduino-humidity-sensor-library/master/Images/screenshot.png
+![Serial monitor screenshot](Images/screenshot.png?raw=true)
+
 
 ## Version History:                                                                                    
  * Version 0.1: getHumidityRaw, getHumidityPercentage
