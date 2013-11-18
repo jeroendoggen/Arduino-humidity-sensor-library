@@ -7,7 +7,7 @@ The sensor is preconfigured for use at room temperature, but can be reconfigured
 ## Library Usage
  * Download the source
  * Place the HIH4030Humidity folder in your Arduino1.0+ "libraries" folder
- * Open example sketch: "file", "Examples", "HIH4030Humidity", "!HumidityPercentage" (or "!RawData")
+ * Open example sketch: "file", "Examples", "HIH4030Humidity", "HumidityPercentage" (or "RawData")
  * Connect the analog sensor to port A0 (and connect Vcc and GND)
  * Compile & upload code
  * Sensor data should be arriving over the serial port
